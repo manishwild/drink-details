@@ -1,3 +1,21 @@
+# The Drink Detail
+
+## The Drink Detail is a Drinks Recipe app. Main propose is to search for cocktails. Also, you can search the drinks by name.
+
+## The Drink Detail feature is you can a search a drink. You can see the pictures, and also you can get information. I used ReactJS to build this app.
+
+## Table of Contents:
+- HTML 5
+- CSS
+- JavaScript
+- ReactJs
+
+
+
+## Authors
+Manish khadgi Shahi
+
+[links](https://thedrinkdetails.netlify.app/)
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

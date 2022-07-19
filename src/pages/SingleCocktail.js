@@ -16,7 +16,7 @@ const SingleCocktail = () => {
       try {
         const response = await fetch(`${url}${id}`)
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
 
         if (data.drinks) {
           const {
@@ -31,6 +31,11 @@ const SingleCocktail = () => {
             strIngredient3,
             strIngredient4,
             strIngredient5,
+            strMeasure1,
+            strMeasure2,
+            strMeasure3,
+            strMeasure4,
+            strMeasure5,
           } = data.drinks[0]
 
           const ingredient = [
@@ -40,6 +45,13 @@ const SingleCocktail = () => {
             strIngredient4,
             strIngredient5,
           ]
+          const measurement = [
+            strMeasure1,
+            strMeasure2,
+            strMeasure3,
+            strMeasure4,
+            strMeasure5,
+          ]
           const newCocktail = {
             name,
             image,
@@ -48,6 +60,7 @@ const SingleCocktail = () => {
             glass,
             instructions,
             ingredient,
+            measurement,
           }
           setCocktail(newCocktail)
         } else {
@@ -67,8 +80,16 @@ const SingleCocktail = () => {
   if (!cocktail) {
     return <h2 className="section-title">No Drinks to display: </h2>
   }
-  const { name, image, info, category, glass, instructions, ingredient } =
-    cocktail
+  const {
+    name,
+    image,
+    info,
+    category,
+    glass,
+    instructions,
+    ingredient,
+    measurement,
+  } = cocktail
   return (
     <section className="section cocktail-section">
       <Link to="/" className="btn btn-primary">
@@ -99,12 +120,24 @@ const SingleCocktail = () => {
             <span className="drink-data">Instruction:</span>
             {instructions}
           </p>
-          <span className="drink-data">
-            ingredients:
+          <p className="drink-data">
+            Ingredients:
             {ingredient.map((item, index) => {
+              const mesurmentContent = measurement[index]
+              return item ? (
+                <span key={index}>
+                  {mesurmentContent}
+                  {item},
+                </span>
+              ) : null
+            })}
+          </p>
+          {/* <p className="drink-data">
+            mesurement:
+            {measurement.map((item, index) => {
               return item ? <span key={index}>{item}</span> : null
             })}
-          </span>
+          </p> */}
         </div>
       </div>
     </section>
